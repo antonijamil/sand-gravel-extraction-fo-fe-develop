@@ -1,0 +1,15 @@
+{
+  "data":
+  [
+    {
+      "value": "BE",
+      "frenchValue": "Belgique",
+      "dutchValue": "België"
+    },
+    {
+      "value": "NL",
+      "frenchValue": "Pays-Bas",
+      "dutchValue": "Nederlands"
+    }
+  ]
+}

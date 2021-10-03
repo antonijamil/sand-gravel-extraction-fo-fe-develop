@@ -1,0 +1,18 @@
+{
+  "identifier": "dev",
+  "apiBase": "http://localhost:8181",
+  "auth": {
+    "clientId": "bta-bo",
+    "issuer": "https://keycloak.aks-prod.internal.economie.fgov.be/auth/realms/FPS_Economy",
+    "redirectUri": "http://localhost:4200",
+    "scope": "openid profile email offline_access",
+    "responseType": "code",
+    "hint": "AzureAD_oidc",
+    "silentRefreshTimeout": 200,
+    "allowedUrls": [
+      "http://localhost:8080",
+      "https://iamservices.aks-prod.internal.economie.fgov.be"
+    ],
+    "publicPage": "/login"
+  }
+}

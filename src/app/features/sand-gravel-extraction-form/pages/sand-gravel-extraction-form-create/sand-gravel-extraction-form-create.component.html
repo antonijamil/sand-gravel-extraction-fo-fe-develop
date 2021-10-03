@@ -1,0 +1,173 @@
+<form [formGroup]="form" novalidate>
+  <eco-card class="col-xs-12" title="{{ 'register-entry.miningVessel' | translate }}">
+    <div>
+      <eco-text
+        class="miningVessel"
+        label="{{ 'register-entry.captainName' | translate }}"
+        formControlName="captain"
+      ></eco-text>
+      <eco-autocomplete
+        class="miningVessel"
+        label="{{ 'register-entry.vesselName' | translate }}"
+        formControlName="ship"
+        forceSelection="true"
+        [options]="shipOptions"
+      ></eco-autocomplete>
+    </div>
+  </eco-card>
+  <eco-card class="col-xs-12" title="{{ 'register-entry.chargingData' | translate }}">
+    <div>
+      <eco-calendar
+        class="dateLoading"
+        label="{{ 'register-entry.loadingStartDate' | translate }}"
+        formControlName="loadingStartDateInput"
+        dateFormat="dd/mm/yy"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+      ></eco-calendar>
+      <span class="dateLoading">
+        <label class="primengLabel">{{ 'register-entry.loadingStartTime' | translate }} *</label>
+        <span style="position: relative; top: 10px">
+          <p-calendar
+            formControlName="loadingStartTimeInput"
+            showTime="true"
+            hourFormat="24"
+            timeOnly="true"
+          ></p-calendar>
+        </span>
+      </span>
+      <br />
+      <eco-calendar
+        class="dateLoading"
+        label="{{ 'register-entry.loadingStopDate' | translate }}"
+        formControlName="loadingStopDateInput"
+        dateFormat="dd/mm/yy"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+      ></eco-calendar>
+      <span class="dateLoading">
+        <label class="primengLabel">{{ 'register-entry.loadingStopTime' | translate }} *</label>
+        <span style="position: relative; top: 10px">
+        <p-calendar
+          formControlName="loadingStopTimeInput"
+          showTime="true"
+          hourFormat="24"
+          timeOnly="true"
+        ></p-calendar>
+        </span>
+      </span>
+    </div>
+    <br />
+    <div>
+      <span class="tripNumber">
+        <label class="primengLabel">{{ 'register-entry.blackboxtripNumber' | translate }} *</label>
+        <span style="position: relative; top: 5px">
+          <p-inputNumber formControlName="tripNumber"></p-inputNumber>
+        </span>
+      </span>
+      <button type="button" class="eco-button eco-button--blue" style="position:relative; top: 15px" (click)="generatetripNumber()">
+        {{ 'register-entry.generatetripNumber' | translate }}
+      </button>
+      <label style="position:relative; left: 10px; top: 15px">
+        {{ 'register-entry.selectToGenerate' | translate }}
+      </label>
+    </div>
+    <br>
+    <div>
+      <eco-autocomplete
+        class="filterField"
+        label="{{ 'register-entry.concessionCodes' | translate }}"
+        formControlName="concessionHolder"
+        forceSelection="true"
+        [options]="concessionCodeOptions"
+      ></eco-autocomplete>
+      <eco-autocomplete
+        class="filterField"
+        label="{{ 'register-entry.loadingSites' | translate }}"
+        formControlName="loadingSite"
+        forceSelection="true"
+        [options]="loadingSitesOptions"
+      ></eco-autocomplete>
+    </div>
+    <div>
+      <span class="primengNumber">
+        <label class="primengLabel">{{ 'register-entry.quantityLoaded' | translate }} *</label>
+        <p-inputNumber formControlName="loadedQuantity"></p-inputNumber>
+        <br />
+      </span>
+      <eco-text-area
+        label="{{ 'register-entry.differentVolume' | translate }}"
+        formControlName="differenceVolume"
+      ></eco-text-area>
+      <label class="validationMessage" *ngIf="form.hasError('tremieNotFull')">{{ 'register-entry.differentVolumeNotFullMessage' | translate }}</label>
+      <label class="validationMessage" *ngIf="form.hasError('tremieTooFull')">{{ 'register-entry.tooMuchQuantityLoaded' | translate }}</label>
+    </div>
+  </eco-card>
+  <eco-card class="col-xs-12" title="{{ 'register-entry.dischargeData' | translate }}">
+    <span class="dischargeData">
+      <label class="primengLabel">{{ 'register-entry.unloadedVolume' | translate }} *</label>
+      <span style="position: relative; top: 10px">
+        <p-inputNumber formControlName="unloadedVolume" (change) = "checkValidUnloading()"></p-inputNumber>
+      </span>
+    </span>
+    <eco-text
+      class="dischargeData"
+      label="{{ 'register-entry.unloadingPlace' | translate }}"
+      formControlName="unloadingPlace"
+      (change) = "checkValidUnloading()"
+    ></eco-text>
+    <eco-text
+      class="dischargeData"
+      label="{{ 'register-entry.destination' | translate }}"
+      formControlName="destination"
+      (change) = "checkValidUnloading()"
+    ></eco-text>
+    <eco-autocomplete
+      class="dischargeData"
+      label="{{ 'register-entry.destinationCountry' | translate }}"
+      formControlName="destinationCountry"
+      forceSelection="true"
+      [options]="countryOptions"
+      (click) = "checkValidUnloading()"
+    ></eco-autocomplete>
+    <button type="submit" class="eco-button eco-button--blue" style="position:relative; top: 15px" [disabled]="!unloadingAvailable" (click)="addUnloading()">{{ 'register-entry.add' | translate }}</button>
+    <p-table [value]="unloadingList" [paginator]="true" rows="10">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{ 'register-entry.unloadedVolume' | translate }}</th>
+          <th>{{ 'register-entry.unloadingPlace' | translate }}</th>
+          <th>{{ 'register-entry.destination' | translate }}</th>
+          <th>{{ 'register-entry.destinationCountry' | translate }}</th>
+          <th>{{ 'register-entry.action' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-unloading>
+        <tr>
+          <td>{{unloading.unloadedVolume}}</td>
+          <td>{{unloading.unloadingPlace}}</td>
+          <td>{{unloading.destination}}</td>
+          <td>{{unloading.destinationCountry}}</td>
+          <td><button type="submit" class="eco-button eco-button--blue" (click)="deleteUnloading(unloading)"><fa-icon [icon]="faTrash"></fa-icon></button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <label class="validationMessage" *ngIf="form.hasError('noUnloading')">{{ 'register-entry.noUnloadingMessage' | translate }}</label>
+    <label class="validationMessage" *ngIf="form.hasError('notCompletelyUnloaded')">{{ 'register-entry.notCompletelyUnloaded' | translate }}</label>
+    <label class="validationMessage" *ngIf="form.hasError('tooMuchUnloaded')">{{ 'register-entry.tooMuchUnloaded' | translate }}</label>
+  </eco-card>
+  <eco-card class="col-xs-12">
+    <eco-checkbox
+      class="col-xs-12 col-md-6"
+      style="position:relative; left: 16px"
+      label="{{ 'register-entry.honorDeclaration' | translate }}"
+      formControlName="swornStatement"
+    ></eco-checkbox>
+    <button type="submit" class="eco-button eco-button--blue"  [disabled]="!form.valid || unloadingList.length == 0" (click)="addNewRegistryEntry()">
+      {{ 'register-entry.submit' | translate }}
+    </button>
+    <a>&nbsp;</a>
+    <button type="button" class="eco-button eco-button--blue" (click)="cancel()">
+      {{ 'register-entry.cancel' | translate }}
+    </button>
+  </eco-card>
+</form>

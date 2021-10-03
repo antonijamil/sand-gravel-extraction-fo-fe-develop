@@ -1,0 +1,47 @@
+image: docker:stable
+
+variables:
+  DOCKER_HOST: tcp://127.0.0.1:2375
+
+before_script:
+  - echo 'registry=http://sng3javarepo.internal.economie.fgov.be/nexus/content/groups/npm-all/' > .npmrc
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/ # allow passing node_modules to the next stages.
+
+services:
+  - name: docker:18.09.7-dind
+
+stages:
+  - build
+  - dockerize
+
+build application:
+  image: node:lts-alpine
+  stage: build
+  script:
+    - apk --no-cache --virtual build-dependencies add python git make g++ # Needed for node-sass
+    - npm ci
+    - npm run build:prd # Should be dynamically based upon environment.
+  only:
+    - develop
+    - master
+  artifacts:
+    when: on_success
+    paths:
+      - dist/sand-gravel-extraction-fo-fe/
+    expire_in: 1 hour
+
+dockerize project:
+  stage: dockerize
+  before_script:
+    - echo "$REGISTRY_PWD" | docker login ${REGISTRY_URL} -u "$REGISTRY_USER" --password-stdin
+  script:
+    - docker build -t ${REGISTRY_URL}/ba/${CI_PROJECT_NAME}:${CI_COMMIT_SHORT_SHA} -t ${REGISTRY_URL}/ba/${CI_PROJECT_NAME} .
+    - docker push ${REGISTRY_URL}/ba/${CI_PROJECT_NAME}
+  only:
+    - develop
+    - master

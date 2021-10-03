@@ -1,0 +1,96 @@
+{
+  "common": {
+    "nl": "Nederlands",
+    "fr": "Frans",
+    "noDataFound": "Er zijn geen resultaten gevonden",
+    "confirmDelete": "Bent u zeker dat u dit document wilt verwijderen?",
+    "actions": "Acties",
+    "action": {
+      "look": "Bekijken",
+      "save": "Opslaan",
+      "back": "Terug",
+      "search": "Zoeken",
+      "reset": "Leegmaken",
+      "cancel": "Annuleren",
+      "delete": "Verwijderen",
+      "downloadCertificate": "Download bestand",
+      "resendEmail": "Mail herverzenden",
+      "updateStatus": "Update status",
+      "logout": "Afmelden"
+    }
+
+  },
+  "error": {
+    "400001": {
+      "title": "Gegevens reeds gewijzigd",
+      "message": "De gegevens die u probeerde te wijzigen zijn al gewijzigd door iemand anders. Gelieve opnieuw te proberen."
+    }
+  },
+  "menu": {
+    "home": "Home",
+    "listViewCaptain": "Overzicht Kapitein",
+    "sandGravelExtractionForm": "Extractieformulier"
+  },
+  "document-list": {
+    "title": "Documenten",
+    "fileName": "Bestandsnaam",
+    "documentType": "Type document",
+    "ticketId": "Ticket Nr",
+    "addDocument": "Nieuw document toevoegen",
+    "chooseType": "Selecteer het type",
+    "chooseTicket": "Selecteer het ticket"
+  },
+  "list-view": {
+    "title": "Lijst van de door u ingediende formulieren",
+    "tripNumber": "Reisnummer",
+    "vessel": "Vaartuig",
+    "captain": "Kapitein",
+    "concessionCode": "Concessiecode",
+    "date": "Datum",
+    "loadingSite": "Laadplaats",
+    "destination": "Bestemming van lossen",
+    "destinationCountry": "Land van de bestemming van lossen",
+    "action": "Actie",
+    "search": "Zoeken",
+    "cancel": "Annuleren",
+    "results": "Resultaten",
+    "searchFields": "Zoektermen",
+    "newForm": "Een formulier invullen"
+  },
+  "register-entry":{
+    "miningVessel": "Ontginningsvaartuig",
+    "captainName": "Naam van de kapitein",
+    "vesselName": "Naam van het vaartuig",
+    "chargingData": "Laadgegevens",
+    "loadingDate": "Datum van laden",
+    "loadingTime": "Tijdstip van laden",
+    "loadingStartTime": "Starttijd opladen",
+    "loadingStopTime": "Stoptijd opladen",
+    "blackboxtripNumber": "Reisnummer van de blackbox",
+    "generatetripNumber": "Genereer het reisnummer van de blackbox",
+    "selectToGenerate": "Selecteer het vaartuig en de datum om te kunnen genereren",
+    "concessionCodes": "Concessiecode",
+    "loadingSites": "Laadplaats",
+    "quantityLoaded": "Geladen hoeveelheid (m³)",
+    "differentVolume": "Afwijkend volume",
+    "differentVolumeNotFullMessage": "Leg uit waarom de hopper niet volledig gevuld is",
+    "tooMuchQuantityLoaded": "Leg uit waarom de geladen hoeveelheid de capaciteit van de trechter overschrijdt",
+    "dischargeData": "Losgegevens",
+    "unloadedVolume": "Gelost Volume (m³)",
+    "unloadingPlace": "Losplaats/Transportvaartuig",
+    "destination": "Bestemming",
+    "destinationCountry": "Land van bestemming",
+    "action": "Actie",
+    "add": "Toevoegen",
+    "noUnloadingMessage": "Voer ten minste één lossing in",
+    "notCompletelyUnloaded": "Alle lasten zijn niet gelost",
+    "tooMuchUnloaded": "Leg uit waarom u meer lost dan de lading",
+    "honorDeclaration": "U verklaart op erewoord dat de informatie juist is",
+    "submit": "Indienen",
+    "cancel": "Annuleren"
+  },
+  "button": {
+    "read": "Lezen",
+    "modify": "Wijzigen"
+  }
+}

@@ -1,0 +1,84 @@
+<div  *ngIf="dataAvailable">
+  <eco-card class="col-xs-12" title="{{ 'register-entry.miningVessel' | translate }}">
+    <div>
+      <a class="label">{{ 'register-entry.captainName' | translate }} : </a>
+      <a>{{registerEntry.captain.name}}</a>
+    </div>
+    <br />
+    <div>
+      <a class="label">{{ 'register-entry.vesselName' | translate }} : </a>
+      <a>{{registerEntry.ship.name}}</a>
+    </div>
+  </eco-card>
+  <eco-card class="col-xs-12" title="{{ 'register-entry.chargingData' | translate }}">
+    <div>
+      <a class="label">{{ 'register-entry.loadingStartDate' | translate }} : </a>
+      <a>{{registerEntry.loadingStartDate}}</a>
+    </div>
+    <div>
+      <br />
+      <a class="label">{{ 'register-entry.loadingStartTime' | translate }} : </a>
+      <a>{{registerEntry.loadingStartTime}}</a>
+    </div>
+    <div>
+      <br />
+      <a class="label">{{ 'register-entry.loadingStopDate' | translate }} : </a>
+      <a>{{registerEntry.loadingStopDate}}</a>
+    </div>
+    <div>
+      <br />
+        <a class="label">{{ 'register-entry.loadingStopTime' | translate }} : </a>
+        <a>{{registerEntry.loadingStopTime}}</a>
+    </div>
+    <div>
+      <br />
+      <a class="label">{{ 'register-entry.blackboxtripNumber' | translate }} : </a>
+      <a>{{registerEntry.tripNumber}}</a>
+    </div>
+    <div>
+      <br />
+      <a class="label">{{ 'register-entry.concessionCodes' | translate }} : </a>
+      <a>{{registerEntry.concessionHolder.concessionHolderNumber}}</a>
+    </div>
+    <div>
+      <br />
+      <a class="label">{{ 'register-entry.loadingSites' | translate }} : </a>
+      <a>{{registerEntry.loadingSite.name}}</a>
+    </div>
+    <div>
+      <br />
+      <a class="label">{{ 'register-entry.quantityLoaded' | translate }} : </a>
+      <a>{{registerEntry.loadedQuantity}} m³</a>
+    </div>
+    <div *ngIf="registerEntry.differenceVolume !== '' && registerEntry.differenceVolume !== undefined">
+      <br />
+      <a class="label">{{ 'register-entry.differentVolume' | translate }} : </a>
+      <a>{{registerEntry.differenceVolume}}</a>
+    </div>
+  </eco-card>
+  <eco-card class="col-xs-12" title="{{ 'register-entry.dischargeData' | translate }}">
+    <p-table [value]="registerEntry.unloadings">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{ 'register-entry.unloadedVolume' | translate }}</th>
+          <th>{{ 'register-entry.unloadingPlace' | translate }}</th>
+          <th>{{ 'register-entry.destination' | translate }}</th>
+          <th>{{ 'register-entry.destinationCountry' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-unloading>
+        <tr>
+          <td>{{unloading.unloadedVolume}}</td>
+          <td>{{unloading.unloadingPlace}}</td>
+          <td>{{unloading.destination}}</td>
+          <td>{{unloading.destinationCountry}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <br />
+    <button type="button" class="eco-button eco-button--blue" (click)="return()">
+      Retour
+    </button>
+  </eco-card>
+
+</div>

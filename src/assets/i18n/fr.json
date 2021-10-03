@@ -1,0 +1,106 @@
+{
+  "common": {
+    "nl": "Néerlandais",
+    "fr": "Français",
+    "noDataFound": "Aucun résultat n'a été trouvé",
+    "confirmDelete": "Voulez-vous vraiment supprimer cette demande?",
+    "actions": "Actions",
+    "action": {
+      "look": "Voir",
+      "save": "Enregistrer",
+      "back": "Retour",
+      "search": "Chercher",
+      "reset": "Vider",
+      "cancel": "Annuler",
+      "delete": "Supprimer",
+      "downloadCertificate": "Télécharger le certificat",
+      "resendEmail": "Renvoyer l'e-mail",
+      "updateStatus": "Mettre à jour le statut",
+      "logout": "Se déconnecter"
+    }
+  },
+  "components": {
+    "multi-select": {
+      "selectStatus": "Selectionner un statut",
+      "selectCountry": "Sélectionner un pays",
+      "countriesSelected": "{} Pays sélectionnés",
+      "noResultsFound": "Aucun résultat n'a été trouvé"
+    }
+  },
+  "error": {
+    "400001": {
+      "title": "Données déjà modifiées",
+      "message": "Les informations que vous avez essayé de modifier ont déjà été modifiées par quelqu'un d'autre. Veuillez réessayer."
+    }
+  },
+  "menu": {
+    "home": "Home",
+    "listViewCaptain": "Aperçu du capitaine",
+    "listViewConcession" : "Aperçu du concessionnaire",
+    "sandGravelExtractionForm": "Formulaire d'extraction"
+  },
+  "document-list": {
+    "title": "Documents",
+    "fileName": "Nom de fichier",
+    "documentType": "Type de document",
+    "ticketId": "No de Ticket",
+    "addDocument": "Ajouter nouveau document",
+    "chooseType": "Selectionner le type",
+    "chooseTicket": "Selectionner le ticket"
+  },
+  "list-view": {
+    "title": "Liste des formulaires soumis par vous",
+    "tripNumber": "Numéro du voyage",
+    "vessel": "Bateau",
+    "captain": "Capitaine",
+    "concessionCode": "Code du concessionnaire",
+    "date": "Date",
+    "loadingSite": "Lieu de chargement",
+    "destination": "Destination du déchargement",
+    "destinationCountry": "Pays de la destination du déchargement",
+    "action": "Action",
+    "search": "Rechercher",
+    "cancel": "Annuler",
+    "results": "Resultats",
+    "searchFields": "Champs de recherche",
+    "newForm": "Remplir un nouveau formulaire"
+  },
+  "register-entry":{
+    "miningVessel": "Vaisseau minier",
+    "captainName": "Nom du capitaine",
+    "vesselName": "Nom du vaisseau",
+    "chargingData": "Données de chargement",
+    "loadingStartDate": "Date de début chargement",
+    "loadingStopDate": "Date de fin de chargement",
+    "loadingTime": "Heure du chargement",
+    "loadingStartTime": "Heure du début du chargement",
+    "loadingStopTime": "Heure de fin du chargement",
+    "blackboxtripNumber": "Numéro de voyage de la blackbox",
+    "generatetripNumber": "Générer le numéro de voyage de la blackbox",
+    "selectToGenerate": "Selectionner le vaisseau et la date pour pouvoir générer le code",
+    "concessionCodes": "Code du concessionnaire",
+    "loadingSites": "Lieu de chargement",
+    "quantityLoaded": "Quantité chargée (m³)",
+    "differentVolume": "Différence de volume",
+    "differentVolumeNotFullMessage": "Expliquez pourquoi le tremie n'est pas rempli",
+    "tooMuchQuantityLoaded": "Expliquez pourquoi la quantité chargée depasse la capacité du trémie",
+    "dischargeData": "Données de déchargement",
+    "unloadedVolume": "Volume déchargé (m³)",
+    "unloadingPlace": "Lieu de déchargement",
+    "destination": "Destination",
+    "destinationCountry": "Pays de destination",
+    "action": "Action",
+    "add": "Ajouter",
+    "noUnloadingMessage": "Entrer au moins un déchargement",
+    "notCompletelyUnloaded": "Tout le chargement n'a pas été déchargé",
+    "tooMuchUnloaded": "Expliquez pourquoi vous déchargez plus que le chargement",
+    "honorDeclaration": "Vous déclarez sur l'honneur que les informations soumises sont correctes",
+    "submit": "Soumettre",
+    "cancel": "Annuler"
+  },
+  "button": {
+    "read": "Afficher",
+    "modify": "Modifier"
+  }
+
+}

@@ -1,0 +1,40 @@
+.filterField{
+  display: inline-grid;
+  margin-right: 20px;
+  width: 300px;
+}
+
+.miningVessel {
+  display: inline-grid;
+  margin-right: 20px;
+  width: 40%;
+}
+
+.dateLoading{
+  display: inline-grid;
+  margin-right: 20px;
+}
+
+.primengNumber{
+  display: inline-grid;
+  margin-right: 20px;
+}
+
+.primengLabel{
+  color: darkgrey;
+}
+
+.tripNumber{
+  display: inline-grid;
+  margin-right: 20px;
+}
+
+.dischargeData{
+  display: inline-grid;
+  margin-right: 20px;
+  width: 20%;
+}
+
+.validationMessage{
+  color: red;
+}
