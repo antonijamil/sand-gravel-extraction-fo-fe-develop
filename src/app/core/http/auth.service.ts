@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -17,10 +18,13 @@ export class AuthService {
   }
 
   authenticationService(username: string, password: string) {
-    return this.http.get(`http://localhost:8080/api/v1/basicauth`,
-      {headers: {authorization: this.createBasicAuthToken(username, password)}}).pipe(map((res) => {
+    const basic = this.createBasicAuthToken(username, password);
+    console.log(basic);
+    return this.http.get(`http://localhost:8080/login`,
+      {headers: {authorization: basic}, responseType: 'text'}).pipe(map((res) => {
       this.username = username;
       this.password = password;
+      console.log(res);
       this.registerSuccessfulLogin(username, password);
     }));
   }
@@ -30,6 +34,7 @@ export class AuthService {
   }
 
   registerSuccessfulLogin(username, password) {
+    console.log('*********');
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username);
   }
   logout() {
@@ -50,3 +55,4 @@ export class AuthService {
     return user;
   }
 }
+

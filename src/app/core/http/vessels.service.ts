@@ -3,6 +3,7 @@ import {LoadingSite} from '@shared/model/loadingSite';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Vessel} from '@shared/model/vessel';
+import {of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,9 @@ export class VesselsService {
   }
 
   public getAll() {
-    return this.http.get<Vessel[]>(this.baseURL + `/ships`).pipe(
+    /*return this.http.get<Vessel[]>(this.baseURL + `/ships`).pipe(
       map(res => res['data'].map(ls => new Vessel(ls)))
-    );
+    );*/
+    return of([]);
   }
 }

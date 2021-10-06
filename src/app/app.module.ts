@@ -14,7 +14,7 @@ import {BaNgAuthenticationModule, OauthInterceptor} from '@bang/auth';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ListViewCaptainComponent} from '@features/list-view/pages/list-view-captain/list-view-captain.component';
 import {CommonModule, DatePipe} from '@angular/common';
-import {HttpInterceptorService} from "@core/http/http-interceptor.service";
+import {HttpInterceptorService} from '@core/http/http-interceptor.service';
 
 
 
@@ -66,11 +66,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       deps: [ConfigProvider],
       multi: true
     },
-    {
+    /*{
       provide: HTTP_INTERCEPTORS,
       useClass: OauthInterceptor,
       multi: true
-    },
+    },*/
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,

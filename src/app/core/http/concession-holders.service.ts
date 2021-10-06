@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Vessel} from '@shared/model/vessel';
 import {map} from 'rxjs/operators';
 import {ConcessionHolder} from '@shared/model/concessionHolder';
+import {observable} from "rxjs";
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +15,9 @@ export class ConcessionHoldersService {
   constructor(private http: HttpClient) { }
 
   public getAll() {
-    return this.http.get<ConcessionHolder[]>(this.baseURL + `/concession-holders`).pipe(
+    /*return this.http.get<ConcessionHolder[]>(this.baseURL + `/concession-holders`).pipe(
       map(res => res['data'].map(ch => new ConcessionHolder(ch)))
-    );
+    );*/
+    return of([]);
   }
 }

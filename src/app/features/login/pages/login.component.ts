@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@core/http/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -28,10 +29,11 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';
-      this.router.navigate(['/hello-world']);
+      // this.router.navigate(['/hello-world']);
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;
+      console.log('error ********');
     });
 }
 }

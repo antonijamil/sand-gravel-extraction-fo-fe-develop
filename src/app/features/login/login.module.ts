@@ -14,11 +14,13 @@ import {LOGIN_ROUTES} from '@features/login/login.routes';
   imports: [
     CommonModule,
     SharedModule,
-    //RouterModule.forChild(LOGIN_ROUTES),
+    RouterModule.forChild(LOGIN_ROUTES),
     FormsModule,
     BaNgCommonModule.forRoot(),
     CalendarModule,
     InputNumberModule
+    // RouterModule.forRoot(LOGIN_ROUTES)
   ]
+  // exports: [RouterModule]
 })
 export class LoginModule { }

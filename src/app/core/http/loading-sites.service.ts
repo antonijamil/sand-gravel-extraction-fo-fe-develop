@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {LoadingSite} from '@shared/model/loadingSite';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
+import {of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class LoadingSitesService {
   }
 
   public getAll() {
-    return this.http.get<LoadingSite[]>(this.baseURL + `/loading-sites`).pipe();
+    // return this.http.get<LoadingSite[]>(this.baseURL + `/loading-sites`).pipe();
+    return of([]);
   }
 }
