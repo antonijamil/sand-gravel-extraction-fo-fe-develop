@@ -14,7 +14,7 @@ export class LoadingSitesService {
   }
 
   public getAll() {
-    // return this.http.get<LoadingSite[]>(this.baseURL + `/loading-sites`).pipe();
+    return this.http.get<LoadingSite[]>(this.baseURL + `/loading-sites`).pipe();
     return of([]);
   }
 }

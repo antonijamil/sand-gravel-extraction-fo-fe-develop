@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -13,15 +12,17 @@ export class AuthService {
   public username: string;
   public password: string;
 
-
   constructor(private http: HttpClient) {
   }
 
   authenticationService(username: string, password: string) {
     const basic = this.createBasicAuthToken(username, password);
     console.log(basic);
-    return this.http.get(`http://localhost:8080/login`,
+    console.log(username);
+    console.log(password);
+    return this.http.get(``,
       {headers: {authorization: basic}, responseType: 'text'}).pipe(map((res) => {
+    //  { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
       this.username = username;
       this.password = password;
       console.log(res);

@@ -15,9 +15,9 @@ export class ConcessionHoldersService {
   constructor(private http: HttpClient) { }
 
   public getAll() {
-    /*return this.http.get<ConcessionHolder[]>(this.baseURL + `/concession-holders`).pipe(
+    return this.http.get<ConcessionHolder[]>(this.baseURL + `/concession-holders`).pipe(
       map(res => res['data'].map(ch => new ConcessionHolder(ch)))
-    );*/
+    );
     return of([]);
   }
 }

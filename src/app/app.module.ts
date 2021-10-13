@@ -17,7 +17,6 @@ import {CommonModule, DatePipe} from '@angular/common';
 import {HttpInterceptorService} from '@core/http/http-interceptor.service';
 
 
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new MultiTranslateHttpLoader(http, [
     {prefix: './assets/i18n/', suffix: '.json'},

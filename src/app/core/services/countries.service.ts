@@ -12,8 +12,8 @@ export class CountriesService {
   }
 
   public getAll() {
-    /*return this.http.get('../../../assets/country/country.json').pipe(
-      map(res => res['data'].map(c => c)));*/
+    return this.http.get('../../../assets/country/country.json').pipe(
+      map(res => res['data'].map(c => c)));
     return of([]);
   }
 }

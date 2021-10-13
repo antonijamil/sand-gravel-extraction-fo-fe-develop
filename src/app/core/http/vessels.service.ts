@@ -15,9 +15,9 @@ export class VesselsService {
   }
 
   public getAll() {
-    /*return this.http.get<Vessel[]>(this.baseURL + `/ships`).pipe(
+    return this.http.get<Vessel[]>(this.baseURL + `/ships`).pipe(
       map(res => res['data'].map(ls => new Vessel(ls)))
-    );*/
+    );
     return of([]);
   }
 }

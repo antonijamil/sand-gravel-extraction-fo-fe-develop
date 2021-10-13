@@ -10,8 +10,6 @@ import {CalendarModule} from 'primeng/calendar';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { SandGravelExtractionFormReadComponent } from './pages/sand-gravel-extraction-form-read/sand-gravel-extraction-form-read.component';
 
-
-
 @NgModule({
   declarations: [SandGravelExtractionFormCreateComponent, SandGravelExtractionFormReadComponent],
   imports: [

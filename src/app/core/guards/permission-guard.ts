@@ -18,7 +18,6 @@ import {appRoutesLinks} from '@app/app.routes.links';
 })
 export class PermissionGuard implements CanActivate, CanActivateChild {
 
-
     constructor(private currentUserService: CurrentUserService,
                 private router: Router) {
     }
