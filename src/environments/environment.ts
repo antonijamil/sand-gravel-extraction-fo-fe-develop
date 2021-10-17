@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseURL: 'https://localhost:8443'
+  //baseURL: 'http://localhost:8080'
 };
 
 /*

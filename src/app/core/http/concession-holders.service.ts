@@ -5,12 +5,13 @@ import {map} from 'rxjs/operators';
 import {ConcessionHolder} from '@shared/model/concessionHolder';
 import {observable} from "rxjs";
 import { of } from 'rxjs';
+import {environment} from "@environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConcessionHoldersService {
-  baseURL = `http://localhost:8080`;
+  baseURL = environment.baseURL;
 
   constructor(private http: HttpClient) { }
 

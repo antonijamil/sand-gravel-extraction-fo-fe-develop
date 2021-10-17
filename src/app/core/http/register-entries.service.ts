@@ -6,12 +6,13 @@ import {map, catchError} from 'rxjs/operators';
 import {DatePipe} from '@angular/common';
 import {Observable, of} from 'rxjs';
 import {Unloading} from '@shared/model/unloading';
+import {environment} from "@environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterEntriesService {
-  baseURL = `http://localhost:8080`;
+  baseURL = environment.baseURL;
 
   constructor(private http: HttpClient, public datepipe: DatePipe) { }
 

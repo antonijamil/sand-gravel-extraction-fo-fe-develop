@@ -18,7 +18,7 @@ export class RegisterEntry {
   concessionHolder: ConcessionHolder;
   loadingSite: LoadingSite;
   loadedQuantity: number;
-  differenceVolume: string;
+  deviantVolume: string;
   unloadings: Unloading[];
 
   constructor(data?: any) {
@@ -36,7 +36,7 @@ export class RegisterEntry {
       this.concessionHolder = data.concessionHolder;
       this.loadingSite = data.loadingSite;
       this.loadedQuantity = data.loadedQuantity;
-      this.differenceVolume = data.differenceVolume;
+      this.deviantVolume = data.deviantVolume;
       this.unloadings = data.unloadings;
     }
   }

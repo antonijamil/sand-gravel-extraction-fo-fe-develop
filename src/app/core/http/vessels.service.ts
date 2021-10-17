@@ -4,12 +4,13 @@ import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Vessel} from '@shared/model/vessel';
 import {of} from "rxjs";
+import {environment} from "@environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class VesselsService {
-  baseURL = `http://localhost:8080`;
+  baseURL = environment.baseURL;
 
   constructor(private http: HttpClient) {
   }

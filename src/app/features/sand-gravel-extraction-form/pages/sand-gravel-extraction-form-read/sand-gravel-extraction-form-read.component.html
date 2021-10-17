@@ -50,10 +50,10 @@
       <a class="label">{{ 'register-entry.quantityLoaded' | translate }} : </a>
       <a>{{registerEntry.loadedQuantity}} m³</a>
     </div>
-    <div *ngIf="registerEntry.differenceVolume !== '' && registerEntry.differenceVolume !== undefined">
+    <div *ngIf="registerEntry.deviantVolume !== '' && registerEntry.deviantVolume !== undefined">
       <br />
       <a class="label">{{ 'register-entry.differentVolume' | translate }} : </a>
-      <a>{{registerEntry.differenceVolume}}</a>
+      <a>{{registerEntry.deviantVolume}}</a>
     </div>
   </eco-card>
   <eco-card class="col-xs-12" title="{{ 'register-entry.dischargeData' | translate }}">

@@ -3,12 +3,13 @@ import {LoadingSite} from '@shared/model/loadingSite';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {of} from "rxjs";
+import {environment} from "@environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoadingSitesService {
-  baseURL = `http://localhost:8080`;
+  baseURL = environment.baseURL;
 
   constructor(private http: HttpClient) {
   }

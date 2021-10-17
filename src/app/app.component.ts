@@ -95,12 +95,12 @@ export class AppComponent implements OnInit, DoCheck {
         visible: this.canActivate && this.isAdmin,
         action: () => this.navigate(appRoutesLinks.LISTVIEW_CAPTAIN),
       },
-      {
+      /*{
         label: this.translate.instant('menu.listViewConcession'),
         icon: 'list',
         visible: this.canActivate && this.isAdmin,
         action: () => this.navigate(appRoutesLinks.LISTVIEW_CONCESSION),
-      },
+      },*/
       {
         label: 'menu.settings',
         icon: 'settings',

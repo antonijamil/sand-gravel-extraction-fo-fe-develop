@@ -64,7 +64,7 @@ export class SandGravelExtractionFormCreateComponent implements OnInit {
       concessionHolder: new FormControl('', Validators.required),
       loadingSite: new FormControl('', Validators.required),
       loadedQuantity: new FormControl(null, Validators.required),
-      differenceVolume: new FormControl(''),
+      deviantVolume: new FormControl(''),
 
       unloadedVolume: new FormControl(null),
       unloadingPlace: new FormControl(''),
@@ -126,11 +126,11 @@ export class SandGravelExtractionFormCreateComponent implements OnInit {
   checkTremieFilling(group: FormGroup): ValidationErrors {
     if (group.controls['ship'].value && group.controls['loadedQuantity'].value) {
       if ((group.controls['ship'].value.tremie - group.controls['loadedQuantity'].value) < 0) {
-        if (!group.controls['differenceVolume'].value) {
+        if (!group.controls['deviantVolume'].value) {
           return {tremieTooFull: true};
         }
       } else if ( group.controls['loadedQuantity'].value / group.controls['ship'].value.tremie < 0.8) {
-        if (!group.controls['differenceVolume'].value) {
+        if (!group.controls['deviantVolume'].value) {
           return {tremieNotFull: true};
         }
       }
@@ -148,7 +148,7 @@ export class SandGravelExtractionFormCreateComponent implements OnInit {
         if (group.controls['loadedQuantity'].value - totalUnloading < 0) {
           return {tooMuchUnloaded: true};
         } else if (totalUnloading / group.controls['loadedQuantity'].value < 0.9 ) {
-          if (!group.controls['differenceVolume'].value) {
+          if (!group.controls['deviantVolume'].value) {
             return {notCompletelyUnloaded: true};
           }
         }
