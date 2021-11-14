@@ -14,6 +14,7 @@ import {appRoutesLinks} from '@app/app.routes.links';
 import {map} from 'rxjs/operators';
 // import {LocalizeRouterService} from '@gilsdav/ngx-translate-router';
 import {AuthenticationService} from '@bang/auth';
+import {AuthService} from "@core/http/auth.service";
 
 
 @Component({
@@ -34,7 +35,8 @@ export class AppComponent implements OnInit, DoCheck {
               private route: ActivatedRoute,
               private errorService: ErrorService,
               private buildInformationService: BuildInformationService,
-              private authService: AuthenticationService,
+              private authenticationService: AuthenticationService,
+              private authService: AuthService,
               // private localizeService: LocalizeRouterService,
               private currentUserService: CurrentUserService,
               private configProvider: ConfigProvider) {
@@ -49,8 +51,8 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   private configureAuth(): void {
-    this.authService.initiateSsoSequence(this.router.routerState.snapshot.url);
-    this.authService.canActivateProtectedRoute$.subscribe(canActivate => {
+    this.authenticationService.initiateSsoSequence(this.router.routerState.snapshot.url);
+    this.authenticationService.canActivateProtectedRoute$.subscribe(canActivate => {
       this.canActivate = canActivate;
       // this.configureSidebar();
     });
@@ -95,6 +97,12 @@ export class AppComponent implements OnInit, DoCheck {
         visible: this.canActivate && this.isAdmin,
         action: () => this.navigate(appRoutesLinks.LISTVIEW_CAPTAIN),
       },
+      {
+        label: 'common.action.logout',
+        icon: 'exit_to_app',
+        visible: this.canActivate,
+        action: () => this.authService.logout()
+      },
       /*{
         label: this.translate.instant('menu.listViewConcession'),
         icon: 'list',
@@ -120,7 +128,7 @@ export class AppComponent implements OnInit, DoCheck {
           {
             label: 'common.action.logout',
             icon: 'exit_to_app',
-            action: () => this.authService.logout()
+            action: () => this.authenticationService.logout()
           },
         ]
       }

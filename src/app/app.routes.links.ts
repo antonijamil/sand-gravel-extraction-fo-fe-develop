@@ -3,7 +3,7 @@ import {listViewRoutesNames} from '@features/list-view/list-view.routes.names';
 import {sandGravelExtractionRoutesNames} from '@features/sand-gravel-extraction-form/sand-gravel-extraction-form.routes.names';
 
 export const appRoutesLinks = {
-  SANDGRAVELEXTRACTIONFORM_CREATE: [`/`],
+  SANDGRAVELEXTRACTIONFORM_CREATE: [`/${appRoutesNames.SANDGRAVELEXTRACTIONFORM}/${sandGravelExtractionRoutesNames.CREATE}`],
   SANDGRAVELEXTRACTIONFORM_READ: [`/${appRoutesNames.SANDGRAVELEXTRACTIONFORM}/${sandGravelExtractionRoutesNames.READ}`],
   LISTVIEW: [`/${appRoutesNames.LISTVIEW}`],
   LISTVIEW_CAPTAIN: [`/${appRoutesNames.LISTVIEW}/${listViewRoutesNames.CAPTAIN}`],

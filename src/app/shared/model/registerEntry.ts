@@ -2,11 +2,11 @@ import {Unloading} from '@shared/model/unloading';
 import {LoadingSite} from '@shared/model/loadingSite';
 import {ConcessionHolder} from '@shared/model/concessionHolder';
 import {Vessel} from '@shared/model/vessel';
-import {Captain} from '@shared/model/Captain';
+import { User } from './user';
 
 export class RegisterEntry {
   id: number;
-  captain: Captain;
+  user: User;
   ship: Vessel;
   tripNumber: number;
   loadingStartDate: string;
@@ -24,7 +24,8 @@ export class RegisterEntry {
   constructor(data?: any) {
     if (data) {
       this.id = data.id;
-      this.captain = data.captain;
+      // this.captain = data.captain;
+      this.user = data.user;
       this.ship = data.ship;
       this.tripNumber = data.tripNumber;
       this.loadingStartDate = data.loadingStartDate;

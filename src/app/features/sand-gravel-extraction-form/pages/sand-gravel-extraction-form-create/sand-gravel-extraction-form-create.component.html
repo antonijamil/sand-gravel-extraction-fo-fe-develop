@@ -4,7 +4,8 @@
       <eco-text
         class="miningVessel"
         label="{{ 'register-entry.captainName' | translate }}"
-        formControlName="captain"
+        formControlName="user"
+
       ></eco-text>
       <eco-autocomplete
         class="miningVessel"
@@ -65,12 +66,12 @@
           <p-inputNumber formControlName="tripNumber"></p-inputNumber>
         </span>
       </span>
-      <button type="button" class="eco-button eco-button--blue" style="position:relative; top: 15px" (click)="generatetripNumber()">
+      <!--<button type="button" class="eco-button eco-button&#45;&#45;blue" style="position:relative; top: 15px" (click)="generatetripNumber()">
         {{ 'register-entry.generatetripNumber' | translate }}
-      </button>
-      <label style="position:relative; left: 10px; top: 15px">
+      </button>-->
+      <!--<label style="position:relative; left: 10px; top: 15px">
         {{ 'register-entry.selectToGenerate' | translate }}
-      </label>
+      </label>-->
     </div>
     <br>
     <div>
@@ -162,7 +163,8 @@
       label="{{ 'register-entry.honorDeclaration' | translate }}"
       formControlName="swornStatement"
     ></eco-checkbox>
-    <button type="submit" class="eco-button eco-button--blue"  [disabled]="!form.valid || unloadingList.length == 0" (click)="addNewRegistryEntry()">
+    <button type="submit" class="eco-button eco-button--blue"  [disabled]="!form.valid || unloadingList.length == 0"
+            (click)="addNewRegistryEntry()">
       {{ 'register-entry.submit' | translate }}
     </button>
     <a>&nbsp;</a>

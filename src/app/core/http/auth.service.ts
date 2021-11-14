@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,13 @@ export class AuthService {
   public username: string;
   public password: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
+
   }
 
   authenticationService(username: string, password: string) {
     const basic = this.createBasicAuthToken(username, password);
     console.log(basic);
-    console.log(username);
-    console.log(password);
     return this.http.get(``,
       {headers: {authorization: basic}, responseType: 'text'}).pipe(map((res) => {
     //  { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
@@ -42,6 +42,7 @@ export class AuthService {
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     this.username = null;
     this.password = null;
+    this.router.navigate(["login"])
   }
 
   isUserLoggedIn(): boolean {

@@ -1,4 +1,4 @@
 export const sandGravelExtractionRoutesNames = {
-  CREATE: '',
+  CREATE: 'new-form',
   READ: 'read/:id'
 };
